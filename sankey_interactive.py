@@ -1,3 +1,4 @@
+import streamlit as st
 import pandas as pd
 from data_processing import process_data_pipeline
 from sankey_drawing import generate_sankey_diagram
