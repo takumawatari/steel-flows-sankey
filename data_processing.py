@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as p
 
 BALANCING_FLOWS = 'Balancing flows'
 EXPORTS = 'Exports'
