@@ -1,4 +1,3 @@
-import streamlit as st
 # Interactive Sankey diagrams of iron and steel flows
 
 from sankey_interactive import run_sankey_interactive
