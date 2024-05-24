@@ -1,5 +1,4 @@
 import pandas as pd
-import xlrd
 
 BALANCING_FLOWS = 'Balancing flows'
 EXPORTS = 'Exports'
