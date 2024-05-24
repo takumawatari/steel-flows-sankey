@@ -1,4 +1,3 @@
-import streamlit as st
 import pandas as pd
 from data_processing import process_data_pipeline
 from sankey_drawing import generate_sankey_diagram
@@ -38,7 +37,7 @@ def display_sankey(country, year, sankey_widgets):
     """
     Display the Sankey widget for the selected country and year.
     """
-    st.display(sankey_widgets[year][country])
+    display(sankey_widgets[year][country])
 
 def run_sankey_interactive(available_years):
     """
@@ -51,7 +50,7 @@ def run_sankey_interactive(available_years):
     file_path = f'data_{available_years[0]}.xlsx'
     country_names = read_country_names(file_path)
 
-    st.interact(display_sankey, 
+    interact(display_sankey, 
              country=widgets.Dropdown(options=country_names, description='Country:'), 
              year=widgets.SelectionSlider(options=available_years, description='Year:', continuous_update=False),
              sankey_widgets=widgets.fixed(sankey_widgets))
