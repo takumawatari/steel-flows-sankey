@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 from data_processing import process_data_pipeline
 from sankey_drawing import generate_sankey_diagram
 from ipywidgets import interact, widgets
