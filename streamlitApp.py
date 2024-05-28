@@ -14,8 +14,8 @@ st.markdown(
     
     **Interact with Sankey diagrams:**
     - **Select a country**: Use the pull-down menu to select the country you're interested in.
-    - **Select a year**: Use the dropdown menu to select the year you want to explore.
-    - **View the graph**: Once you've made your selection, the Sankey diagram for the selected country and year will instantly appear.
+    - **Select a year**: Drag the slider to select the year you want to explore.
+    - **View the diagram**: Once you've made your selection, the Sankey diagram for the selected country and year will instantly appear.
     """
 )
 
