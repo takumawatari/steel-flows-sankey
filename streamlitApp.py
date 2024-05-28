@@ -10,8 +10,6 @@ st.markdown(
     """
     **Aim**: This web application presents Sankey diagrams of iron and steel flows for the world's top 30 crude steel producing countries.
     
-    **Data Sources**: The primary data used in this analysis comes from the World Steel Association and the US Geological Survey.
-    
     **Software**: The Sankey diagrams are designed using [floWeaver software](https://github.com/ricklupton/floweaver).
     
     **Interact with Sankey diagrams:**
