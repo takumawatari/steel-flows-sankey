@@ -4,6 +4,17 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 st.title("Interactive Sankey diagrams of iron and steel flows", anchor=None)
+
+tabs = st.tabs(["Overview", "Interact"])
+
+with tabs[0]:
+    st.markdown("**Author**: Takuma Watari (National Institute of Environmental Studies, Japan)")
+    st.markdown("**Aim**: This notebook presents interactive Sankey diagrams of iron and steel flows for the world's top 30 crude steel producing countries.")
+    st.markdown("**Data sources**: The primary data used in this analysis comes from the World Steel Association and the US Geological Survey.")
+    st.markdown("**Software**: The Sankey diagram is designed using floWeaver software: https://github.com/ricklupton/floweaver.")
+
+
+
 st.markdown("**Author**: Takuma Watari (National Institute of Environmental Studies, Japan)")
 st.markdown(
     "**Aim**: This web application presents interactive Sankey diagrams of iron and steel flows for the world's top 30 crude steel producing countries.")
