@@ -1,3 +1,6 @@
+import pandas as pd
+import streamlit as st
+
 st.set_page_config(layout="wide")
 
 st.title("Interactive Sankey diagrams of iron and steel flows", anchor=None)
@@ -15,10 +18,13 @@ st.markdown(
     "**-** View the graph: Once you've made your selection, the Sankey diagram for the selected country and year will instantly appear.")
 
 available_years = [2000, 2005, 2010, 2015, 2019]
+year_to_index = {year: index for index, year in enumerate(available_years)}
+slider_value = st.slider('Year', min_value=0, max_value=len(available_years) - 1, value=0, step=1)
+year = available_years[slider_value]
+
 file_path = f'data_{year}.xlsx'
 country_names_df = pd.read_excel(file_path, sheet_name='list')
 country = st.selectbox('Country', country_names_df['Country'])
-year = st.selectbox('Year', available_years)
 
 with open("sankey/" + f'{country}_{year}.svg', encoding="utf8") as file:
     svg_content = file.read()
