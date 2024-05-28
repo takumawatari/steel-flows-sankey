@@ -18,10 +18,10 @@ st.markdown(
     "**-** View the graph: Once you've made your selection, the Sankey diagram for the selected country and year will instantly appear.")
 
 available_years = [2000, 2005, 2010, 2015, 2019]
-year = st.slider('Year', min_value=min(available_years), max_value=max(available_years), step=5)
-file_path = f'data_{available_years[0]}.xlsx'
+year = st.selectbox('Year', available_years)
+file_path = f'data_{year}.xlsx'
 country_names_df = pd.read_excel(file_path, sheet_name='list')
-country = st.selectbox('Country', country_names_df)
+country = st.selectbox('Country', country_names_df['Country'])
 
 with open("sankey/" + f'{country}_{year}.svg', encoding="utf8") as file:
     svg_content = file.read()
