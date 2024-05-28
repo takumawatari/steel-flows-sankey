@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(layout="wide")
 st.title("Sankey Diagrams of Iron and Steel Flows", anchor=None)
 
-st.markdown("**Author**: Takuma Watari (National Institute of Environmental Studies, Japan)")
+st.markdown("**Author**: [Takuma Watari](https://takuma-watari.com/en/) (National Institute of Environmental Studies, Japan)")
 
 st.markdown(
     """
