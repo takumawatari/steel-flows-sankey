@@ -5,6 +5,8 @@ This repository contains tools for visualising iron and steel flows using intera
 
 [Web Application](https://steel-flows-sankey.streamlit.app/)
 
+[Binder](https://mybinder.org/v2/gh/takumawatari/steel-flows-sankey/main?labpath=Interactive_Sankey_Steel.ipynb)
+
 [Jupyter Notebook](https://github.com/takumawatari/steel-flows-sankey/blob/main/Interactive_Sankey_Steel.ipynb)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/takumawatari/steel-flows-sankey/main?labpath=Interactive_Sankey_Steel.ipynb)
