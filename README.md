@@ -1,7 +1,7 @@
 # Sankey Diagrams of Iron and Steel Flows
 
 ## Overview
-This repository contains tools for visualising iron and steel flows using interactive Sankey diagrams. Users can choose to explore these visualisations through a web application or a Jupyter Notebook.
+This repository contains tools for visualising iron and steel flows using interactive Sankey diagrams. You can choose to explore these visualisations through a web application or a Jupyter Notebook.
 
 [Web Application](https://steel-flows-sankey.streamlit.app/)
 
@@ -9,7 +9,6 @@ This repository contains tools for visualising iron and steel flows using intera
 
 [Jupyter Notebook](https://github.com/takumawatari/steel-flows-sankey/blob/main/Interactive_Sankey_Steel.ipynb)
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/takumawatari/steel-flows-sankey/main?labpath=Interactive_Sankey_Steel.ipynb)
 
 ## Interact with Sankey diagrams
 - **Select a Country**: Use the pull-down menu to select the country you're interested in.
