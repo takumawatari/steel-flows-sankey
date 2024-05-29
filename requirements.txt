@@ -1,3 +1,6 @@
 pandas
-streamlit
 openpyxl
+floweaver
+ipywidgets
+jupyter
+streamlit
