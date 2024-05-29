@@ -48,9 +48,9 @@ def run_sankey_interactive(available_years):
     for year in available_years:
         sankey_widgets[year] = generate_sankey_widgets(year)
 
-    file_path = f'data_{available_years[0]}.xlsx'
-    country_names = read_country_names(file_path)
-
+    initial_file_path = os.path.join('data', f'data_{available_years[0]}.xlsx')
+    country_names = read_country_names(initial_file_path)
+    
     interact(display_sankey, 
              country=widgets.Dropdown(options=country_names, description='Country:'), 
              year=widgets.SelectionSlider(options=available_years, description='Year:', continuous_update=False),
