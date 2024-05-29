@@ -23,14 +23,13 @@ def generate_sankey_widgets(year):
     excel_writer = pd.ExcelWriter(transformed_data_path)
     
     sankey_widgets = {} 
-    for country_name in country_names:
-        transformed_data = process_data_pipeline(file_path, country_name)
-        transformed_data.to_excel(excel_writer, sheet_name=country_name, index=False)
-        file_name = f'{country_name}_{year}.svg'
-        sankey_widget = generate_sankey_diagram(transformed_data, country_name, year, file_name=file_name)[0]
-        sankey_widgets[country_name] = sankey_widget
-        
-    excel_writer.save()
+    with pd.ExcelWriter(transformed_data_path) as excel_writer:
+        for country_name in country_names:
+            transformed_data = process_data_pipeline(file_path, country_name)
+            transformed_data.to_excel(excel_writer, sheet_name=country_name, index=False)
+            file_name = f'{country_name}_{year}.svg'
+            sankey_widget = generate_sankey_diagram(transformed_data, country_name, year, file_name=file_name)[0]
+            sankey_widgets[country_name] = sankey_widget
     
     return sankey_widgets
 
