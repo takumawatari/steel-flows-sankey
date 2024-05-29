@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import os
 
 st.set_page_config(layout="wide")
 st.title("Sankey Diagrams of Iron and Steel Flows", anchor=None)
@@ -21,7 +22,7 @@ st.markdown(
 
 available_years = [2000, 2005, 2010, 2015, 2019]
 year = st.select_slider('Year', options=available_years)
-file_path = f'data_{year}.xlsx'
+file_path = os.path.join('data', f'data_{year}.xlsx')
 country_names_df = pd.read_excel(file_path, sheet_name='list')
 country = st.selectbox('Country', country_names_df['Country'])
 
