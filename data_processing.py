@@ -32,7 +32,7 @@ def read_original_data(file_path, sheet_name):
     Read the original data from an Excel file.
     """
     try:
-        original_data = pd.read_excel(file_path, sheet_name=sheet_name, usecols='A:L,N:Q', nrows=13, index_col=0)
+        original_data = pd.read_excel(file_path, sheet_name=sheet_name, usecols='A:K,M:P', nrows=12, index_col=0)
         original_data.fillna(0, inplace=True)
         return original_data
     except FileNotFoundError:
