@@ -13,7 +13,6 @@ This repository contains tools for visualising iron and steel flows using intera
 ## Interact with Sankey diagrams
 - **Select a country**: Use the pull-down menu to select the country you're interested in.
 - **Select a year**: Drag the slider to select the year you want to explore.
-- **View the diagram**: Once you've made your selection, the Sankey diagram for the selected country and year will instantly appear.
 - **Hover for details**: Hover over each flow in the graph to see the actual data.
 
 ## Citation and Attached Paper
