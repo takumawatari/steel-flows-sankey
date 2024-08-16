@@ -16,12 +16,11 @@ st.markdown(
     **Interact with Sankey diagrams:**
     - **Select a country**: Use the pull-down menu to select the country you're interested in.
     - **Select a year**: Drag the slider to select the year you want to explore.
-    - **View the diagram**: Once you've made your selection, the Sankey diagram for the selected country and year will instantly appear.
     - **Hover for details**: Hover over each flow in the graph to see the actual data.
     """
 )
 
-available_years = [2000, 2005, 2010, 2015, 2019]
+available_years = list(range(2000, 2020))
 year = st.select_slider('Year', options=available_years)
 file_path = os.path.join('data', f'data_{year}.xlsx')
 country_names_df = pd.read_excel(file_path, sheet_name='list')
