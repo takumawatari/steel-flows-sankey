@@ -83,7 +83,7 @@ def swap_source_target(transformed_data):
     """
     Swap source and target columns based on type.
     """
-    transformed_data.loc[transformed_data['source'] == 'Waste', ['source', 'target']] = transformed_data.loc[transformed_data['source'] == 'Waste', ['target', 'source']].values
+    transformed_data.loc[transformed_data['source'] == 'Loss', ['source', 'target']] = transformed_data.loc[transformed_data['source'] == 'Loss', ['target', 'source']].values
     transformed_data.loc[transformed_data['source'] == 'In-use goods', ['source', 'target']] = transformed_data.loc[transformed_data['source'] == 'In-use goods', ['target', 'source']].values
     transformed_data.loc[transformed_data['source'] == 'Generated scrap', ['source', 'target']] = transformed_data.loc[transformed_data['source'] == 'Generated scrap', ['target', 'source']].values
     transformed_data.loc[transformed_data['target'] == IMPORTS, ['source', 'target']] = transformed_data.loc[transformed_data['target'] == IMPORTS, ['target', 'source']].values
