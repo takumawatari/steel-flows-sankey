@@ -143,7 +143,7 @@ def generate_sankey_diagram(transformed_data, country, year, file_name=None):
     sdd = SankeyDefinition(nodes, bundles, ordering, flow_partition=dataset.partition('type'))
     sankey_widget = weave(sdd, dataset, palette=palette).to_widget(width=1100, height=400)
     
-    directory = 'sankey'
+    directory = os.path.join('..', 'sankey')
     os.makedirs(directory, exist_ok=True)
     file_name = f'{country}_{year}.svg'
     file_path = os.path.join(directory, file_name)
