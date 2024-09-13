@@ -69,7 +69,6 @@ def add_balancing_flows(transformed_data):
                 new_rows.append({'source': row['source'], 'target': IMPORTS, 'type': BALANCING_FLOWS, 'value': 0})
             elif row['value'] < 0:
                 transformed_data.at[index, 'target'] = IMPORTS
-                transformed_data.at[index, 'value'] = abs(row['value'])
                 transformed_data.at[index, 'type'] = BALANCING_FLOWS
                 new_rows.append({'source': row['source'], 'target': EXPORTS, 'type': BALANCING_FLOWS, 'value': 0})
 
@@ -126,11 +125,11 @@ def add_iron_ore_production(transformed_data):
     """
     Add data for iron ore production.
     """
-    value_iron_ore_production = (transformed_data.loc[(transformed_data['source'] == 'Iron ore') & (transformed_data['target'] == 'Pig iron'), 'value'].sum() +
-                                 transformed_data.loc[(transformed_data['source'] == 'Iron ore') & (transformed_data['target'] == 'DRI'), 'value'].sum() +
-                                 transformed_data.loc[(transformed_data['source'] == 'Iron ore') & (transformed_data['target'] == f'{EXPORTS} of iron ore'), 'value'].sum() +
-                                 transformed_data.loc[(transformed_data['source'] == f'{IMPORTS} of iron ore') & (transformed_data['target'] == 'Iron ore'), 'value'].sum()
-                                )
+    iron_ore_data = transformed_data[
+        (transformed_data['source'] == 'Iron ore') | 
+        (transformed_data['target'] == 'Iron ore')
+    ]
+    value_iron_ore_production = iron_ore_data['value'].sum()
     
     new_row = pd.DataFrame({'source': ['Production of iron ore'],
                             'target': ['Iron ore'],

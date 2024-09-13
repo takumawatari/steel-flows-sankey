@@ -16,10 +16,10 @@ def generate_sankey_widgets(year):
     """
     Generate Sankey widgets for each country for the specified year.
     """
-    file_path = os.path.join('data', f'data_{year}.xlsx')
+    file_path = os.path.join('..', 'data', f'data_{year}.xlsx')
     country_names = read_country_names(file_path)
     
-    transformed_data_path = os.path.join('data', f'transformed_data_{year}.xlsx')
+    transformed_data_path = os.path.join('..', 'data', f'transformed_data_{year}.xlsx')
     excel_writer = pd.ExcelWriter(transformed_data_path)
     
     sankey_widgets = {} 
@@ -47,7 +47,7 @@ def run_sankey_interactive(available_years):
     for year in available_years:
         sankey_widgets[year] = generate_sankey_widgets(year)
 
-    initial_file_path = os.path.join('data', f'data_{available_years[0]}.xlsx')
+    initial_file_path = os.path.join('..', 'data', f'data_{available_years[0]}.xlsx')
     country_names = read_country_names(initial_file_path)
     
     interact(display_sankey, 
