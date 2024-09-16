@@ -22,7 +22,7 @@ st.markdown(
 
 available_years = list(range(2000, 2020))
 year = st.select_slider('Year', options=available_years)
-file_path = os.path.join('..', 'data', f'data_{year}.xlsx')
+file_path = os.path.join('data', f'data_{year}.xlsx')
 country_names_df = pd.read_excel(file_path, sheet_name='list')
 country = st.selectbox('Country', country_names_df['Country'])
 
