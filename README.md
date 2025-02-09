@@ -15,6 +15,6 @@ This repository contains tools for visualising iron and steel flows using intera
 - **Select a year**: Drag the slider to select the year you want to explore.
 - **Hover for details**: Hover over each flow in the graph to see the actual data.
 
-## Citation and Attached Paper
+## Citation
 If you find this repository useful for your work, please cite the associated paper below.
 > Watari, T. et al. (), in prep.
