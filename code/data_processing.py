@@ -1,9 +1,5 @@
 import pandas as pd
 
-BALANCING_FLOWS = 'Balancing flows'
-EXPORTS = 'Exports'
-IMPORTS = 'Imports'
-
 def process_data_pipeline(file_path, sheet_name):
     """
     Process data pipeline.
@@ -62,19 +58,19 @@ def add_balancing_flows(transformed_data):
     """
     new_rows = []
     for index, row in transformed_data.iterrows():
-        if row['target'] == BALANCING_FLOWS:
+        if row['target'] == 'Balancing flows':
             if row['value'] > 0:
-                transformed_data.at[index, 'target'] = EXPORTS
-                transformed_data.at[index, 'type'] = BALANCING_FLOWS
-                new_rows.append({'source': row['source'], 'target': IMPORTS, 'type': BALANCING_FLOWS, 'value': 0})
+                transformed_data.at[index, 'target'] = 'Exports'
+                transformed_data.at[index, 'type'] = 'Balancing flows'
+                new_rows.append({'source': row['source'], 'target': 'Imports', 'type': 'Balancing flows', 'value': 0})
             elif row['value'] < 0:
-                transformed_data.at[index, 'target'] = IMPORTS
-                transformed_data.at[index, 'type'] = BALANCING_FLOWS
-                new_rows.append({'source': row['source'], 'target': EXPORTS, 'type': BALANCING_FLOWS, 'value': 0})
+                transformed_data.at[index, 'target'] = 'Imports'
+                transformed_data.at[index, 'type'] = 'Balancing flows'
+                new_rows.append({'source': row['source'], 'target': 'Exports', 'type': 'Balancing flows', 'value': 0})
 
-        if row['target'] == BALANCING_FLOWS and row['value'] == 0:
-            new_rows.append({'source': row['source'], 'target': EXPORTS, 'type': BALANCING_FLOWS, 'value': 0})
-            new_rows.append({'source': row['source'], 'target': IMPORTS, 'type': BALANCING_FLOWS, 'value': 0})
+        if row['target'] == 'Balancing flows' and row['value'] == 0:
+            new_rows.append({'source': row['source'], 'target': 'Exports', 'type': 'Balancing flows', 'value': 0})
+            new_rows.append({'source': row['source'], 'target': 'Imports', 'type': 'Balancing flows', 'value': 0})
 
     return pd.concat([transformed_data, pd.DataFrame(new_rows)], ignore_index=True)
 
@@ -85,7 +81,7 @@ def swap_source_target(transformed_data):
     transformed_data.loc[transformed_data['source'] == 'Loss', ['source', 'target']] = transformed_data.loc[transformed_data['source'] == 'Loss', ['target', 'source']].values
     transformed_data.loc[transformed_data['source'] == 'In-use goods', ['source', 'target']] = transformed_data.loc[transformed_data['source'] == 'In-use goods', ['target', 'source']].values
     transformed_data.loc[transformed_data['source'] == 'Generated scrap', ['source', 'target']] = transformed_data.loc[transformed_data['source'] == 'Generated scrap', ['target', 'source']].values
-    transformed_data.loc[transformed_data['target'] == IMPORTS, ['source', 'target']] = transformed_data.loc[transformed_data['target'] == IMPORTS, ['target', 'source']].values
+    transformed_data.loc[transformed_data['target'] == 'Imports', ['source', 'target']] = transformed_data.loc[transformed_data['target'] == 'Imports', ['target', 'source']].values
     return transformed_data
 
 def rename_target_source_based_on_type(transformed_data):
@@ -93,11 +89,11 @@ def rename_target_source_based_on_type(transformed_data):
     Rename source and target.
     """
     for index, row in transformed_data.iterrows():
-        if row['target'] == EXPORTS or row['source'] == IMPORTS or row['source'] == 'Production':
-            if row['type'] != BALANCING_FLOWS:
-                if row['target'] == EXPORTS:
+        if row['target'] == 'Exports' or row['source'] == 'Imports' or row['source'] == 'Production':
+            if row['type'] != 'Balancing flows':
+                if row['target'] == 'Exports':
                     transformed_data.at[index, 'target'] = f'Exports of {row["type"].lower()}'
-                elif row['source'] == IMPORTS:
+                elif row['source'] == 'Imports':
                     transformed_data.at[index, 'source'] = f'Imports of {row["type"].lower()}'
                 elif row['source'] == 'Production':
                     transformed_data.at[index, 'source'] = f'Production of {row["type"].lower()}'
@@ -115,9 +111,9 @@ def rename_exports_imports(transformed_data):
     Rename 'Exports' and 'Imports'.
     """
     for index, row in transformed_data.iterrows():
-        if row['target'] == EXPORTS and row['type'] == BALANCING_FLOWS:
+        if row['target'] == 'Exports' and row['type'] == 'Balancing flows':
             transformed_data.at[index, 'target'] = f'Exports of {row["source"].lower()}'
-        elif row['source'] == IMPORTS and row['type'] == BALANCING_FLOWS:
+        elif row['source'] == 'Imports' and row['type'] == 'Balancing flows':
             transformed_data.at[index, 'source'] = f'Imports of {row["target"].lower()}'
     return transformed_data
 
