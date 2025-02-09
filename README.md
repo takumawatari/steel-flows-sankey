@@ -7,7 +7,7 @@ This repository contains tools for visualising iron and steel flows using intera
 
 [Binder](https://mybinder.org/v2/gh/takumawatari/steel-flows-sankey/main?labpath=Interactive_Sankey_Steel.ipynb): Launch the Jupyter Notebook in a live environment using Binder
 
-[Jupyter Notebook](https://github.com/takumawatari/steel-flows-sankey/blob/main/Interactive_Sankey_Steel.ipynb): Access the Jupyter Notebook directly from the repository
+[Jupyter Notebook](https://github.com/takumawatari/steel-flows-sankey/blob/main/code/Interactive_Sankey_Steel.ipynb): Access the Jupyter Notebook directly from the repository
 
 
 ## Interact with Sankey diagrams
