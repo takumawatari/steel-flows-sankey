@@ -1,10 +1,8 @@
 from floweaver import *
 import os
 
+# Define the nodes
 def create_nodes():
-    """
-    Define the nodes.
-    """
     nodes = {
         'Production of iron ore': ProcessGroup(['Production of iron ore'], title='Mine'),
         'Iron ore': ProcessGroup(['Iron ore'], title='Iron ore'),
@@ -39,10 +37,8 @@ def create_nodes():
     }
     return nodes
 
+# Define the bundles
 def create_bundles():
-    """
-    Define the bundles.
-    """
     bundles = [
         Bundle('Production of iron ore', 'Iron ore'),
         Bundle('Imports of ore and scrap', 'Iron ore'),
@@ -88,10 +84,8 @@ def create_bundles():
     ]
     return bundles
 
+# Define the ordering
 def create_ordering():
-    """
-    Define the ordering.
-    """
     ordering = [
     [['Imports of ore and scrap'],['Production of iron ore'], [],[],['Reference flow start']],
     [['Imports of pig and DRI'],['Iron ore', 'Scrap steel'],[],[],['Reference flow end']],
@@ -104,10 +98,8 @@ def create_ordering():
     ]
     return ordering
 
+# Define the color palette
 def create_palette():
-    """
-    Define the color palette.
-    """
     palette = {
         'Iron ore': '#525252',
         'Pig iron': '#0868ac',
@@ -126,10 +118,8 @@ def create_palette():
     }
     return palette
 
+# Generate the Sankey diagram
 def generate_sankey_diagram(transformed_data, country, year, file_name=None):
-    """
-    Generate the Sankey diagram.
-    """
     dataset = Dataset(transformed_data)
     nodes = create_nodes()
     bundles = create_bundles()
