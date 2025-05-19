@@ -17,4 +17,6 @@ This repository contains data and tools for visualising iron and steel flows usi
 
 ## Citation
 If you find this repository useful for your work, please cite the associated paper below.
-> Watari, T. et al. (2025) Global stagnation and regional variations in steel recycling, Resources, Conservation and Recycling
+> Watari, T. et al. (2025) Global stagnation and regional variations in steel recycling, Resources, Conservation and Recycling, 220, 108363, https://doi.org/10.1016/j.resconrec.2025.108363
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15344957.svg)](https://doi.org/10.5281/zenodo.15344957)
