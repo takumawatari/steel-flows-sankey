@@ -4,4 +4,4 @@ floweaver
 ipywidgets
 ipysankeywidget
 jupyter
-streamlit
+streamlit==1.54.0
